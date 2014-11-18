@@ -22,7 +22,8 @@
 (setq inhibit-splash-screen t)
 
 ;; Tabs cause nothing but headaches but I'm forced to use them at work.
-(setq-default tab-width 4)
+(setq tab-width 4)
+(defvaralias 'c-basic-offset 'tab-width)
 (setq-default indent-tabs-mode using-windows-p)
 
 ;; Typing replaces the selected region.
