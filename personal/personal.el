@@ -1,4 +1,8 @@
-(prelude-require-packages '(maxframe yasnippet paredit rainbow-delimiters))
+(prelude-require-packages '(switch-window maxframe yasnippet paredit rainbow-delimiters))
+
+;; Enable fancy window switching.
+(require 'switch-window)
+(global-set-key (kbd "C-x o") 'switch-window)
 
 ;; Maxmize the window and start with 50/50 vertical split.
 (require 'maxframe)
@@ -10,6 +14,11 @@
 (yas-global-mode t)
 (yas/load-directory (expand-file-name "elpa/yasnippet-20141117.327/snippets" prelude-dir))
 (yas/load-directory (expand-file-name "personal/snippets" prelude-dir))
+
+;; Flycheck is annoying.
+;; Maybe I'll get it setup to not be at some point.
+;; This can't go in the preload file as it won't be defined until later.
+(global-flycheck-mode -1)
 
 ;; C mode specific stuff.
 (add-hook 'c-mode-common-hook

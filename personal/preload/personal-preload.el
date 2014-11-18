@@ -48,13 +48,31 @@
 ;; Whitespace mode is kind of annoying.
 (setq prelude-whitespace nil)
 
-;; Flycheck is also annoying.
-;; Maybe I'll get it setup to not be at some point.
-(global-flycheck-mode -1)
-
 ;; Close Emacs with confirmation.
 (defun confirm-exit-from-emacs ()
   (interactive)
   (if (yes-or-no-p "Do you want to exit? ")
       (save-buffers-kill-emacs)))
 (global-set-key (kbd "C-x C-c") 'confirm-exit-from-emacs)
+
+;; You can actually use a real terminal from within Emacs on Linux once the
+;; PATH environment variable is set correctly.
+;; Also make sure that we use a colorized prompt.
+(if using-linux-p
+    (progn
+      (setenv "PATH" (concat (getenv "PATH") ":~/bin"))
+      (setenv "color_prompt" "yes")
+      (setq exec-path (append exec-path '("~/bin")))))
+
+;; A handy function for starting a shell buffer in a new window or visiting
+;; an existing shell buffer. Uses eshell on Windows, ansi-term everywhere else.
+(defun start-shell ()
+  (interactive)
+  (let ((shell-buffer-name (if using-windows-p "*eshell*" "*ansi-term*")))
+    (if (not (get-buffer shell-buffer-name))
+        (progn
+          (split-window-sensibly (selected-window))
+          (other-window 1)
+          (if using-windows-p (eshell) (ansi-term (getenv "SHELL"))))
+      (switch-to-buffer-other-window shell-buffer-name))))
+(global-set-key (kbd "<f5>") 'start-shell)
