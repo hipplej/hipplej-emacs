@@ -43,3 +43,6 @@
           (lambda ()
             (rainbow-delimiters-mode)
             (paredit-mode 1)))
+
+;; Start Emacs Server
+(server-start)
