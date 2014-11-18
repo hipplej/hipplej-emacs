@@ -15,10 +15,19 @@
 (yas/load-directory (expand-file-name "elpa/yasnippet-20141117.327/snippets" prelude-dir))
 (yas/load-directory (expand-file-name "personal/snippets" prelude-dir))
 
+;; Provide fancy highlighting of parenthesis and related symbols.
+(require 'rainbow-delimiters)
+
 ;; Flycheck is annoying.
 ;; Maybe I'll get it setup to not be at some point.
 ;; This can't go in the preload file as it won't be defined until later.
 (global-flycheck-mode -1)
+
+;; Qt's .pro and .pri files use IDL mode by default, make them not do that.
+;; Also make .conf files use shell script mode.
+(add-to-list 'auto-mode-alist '("\\.pro\\'" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("\\.pri\\'" . shell-script-mode))
+(add-to-list 'auto-mode-alist '("\\.conf\\'" . shell-script-mode))
 
 ;; C mode specific stuff.
 (add-hook 'c-mode-common-hook
