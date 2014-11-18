@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
-# name: try
-# key: try
+# name: ztry
+# key: ztry
 # --
 try
 {
