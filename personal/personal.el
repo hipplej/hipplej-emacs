@@ -12,11 +12,11 @@
 ;; Enable yasnippet for fancy templates.
 (require 'yasnippet)
 (yas-global-mode t)
-(yas/load-directory (expand-file-name "elpa/yasnippet-20141117.327/snippets" prelude-dir))
 (yas/load-directory (expand-file-name "personal/snippets" prelude-dir))
 
 ;; Provide fancy highlighting of parenthesis and related symbols.
 (require 'rainbow-delimiters)
+(rainbow-delimiters-mode)
 
 ;; Flycheck is annoying.
 ;; Maybe I'll get it setup to not be at some point.
@@ -29,13 +29,17 @@
 (add-to-list 'auto-mode-alist '("\\.pri\\'" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("\\.conf\\'" . shell-script-mode))
 
-;; C mode specific stuff.
-(add-hook 'c-mode-common-hook
+;; Setup some handy Company mode keybinds.
+(define-key company-active-map (kbd "C-n") 'company-select-next)
+(define-key company-active-map (kbd "C-p") 'company-select-previous)
+(define-key company-active-map (kbd "C-h") 'company-show-doc-buffer)
+(define-key company-active-map (kbd "<tab>") 'company-complete-selection)
+
+;; General programming mode specific stuff.
+(add-hook 'prog-mode-common-hook
           (lambda ()
             ;; Make these patterns more evident in code.
-            (font-lock-add-keywords nil '(("\\<\\(FIXME\\|TODO\\|BUG\\|NOTE\\):" 1 font-lock-warning-face t)))
-            ;; Handy for jumping between .h and .cpp files.
-            (local-set-key  (kbd "C-c o") 'ff-find-other-file)))
+            (font-lock-add-keywords nil '(("\\<\\(FIXME\\|TODO\\|BUG\\|NOTE\\):" 1 font-lock-warning-face t)))))
 
 ;; Python mode specific stuff.
 (add-hook 'python-mode-hook
@@ -50,7 +54,6 @@
 ;; Clojure mode specific stuff.
 (add-hook 'clojure-mode-hook
           (lambda ()
-            (rainbow-delimiters-mode)
             (paredit-mode 1)))
 
 ;; Start Emacs Server
