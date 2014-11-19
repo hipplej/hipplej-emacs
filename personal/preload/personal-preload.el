@@ -56,6 +56,9 @@
       (save-buffers-kill-emacs)))
 (global-set-key (kbd "C-x C-c") 'confirm-exit-from-emacs)
 
+;; Disable suspend. I never use it on purpose.
+(global-unset-key (kbd "C-z"))
+
 ;; You can actually use a real terminal from within Emacs on Linux once the
 ;; PATH environment variable is set correctly.
 ;; Also make sure that we use a colorized prompt.
