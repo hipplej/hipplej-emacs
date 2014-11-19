@@ -11,8 +11,8 @@
 
 ;; Enable yasnippet for fancy templates.
 (require 'yasnippet)
+(setq yas-snippet-dirs (expand-file-name "personal/snippets" prelude-dir))
 (yas-global-mode t)
-(yas/load-directory (expand-file-name "personal/snippets" prelude-dir))
 
 ;; Provide fancy highlighting of parenthesis and related symbols.
 (require 'rainbow-delimiters)
