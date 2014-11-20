@@ -1,4 +1,20 @@
+;; Prelude will automatically install the packages specified in this list.
 (prelude-require-packages '(switch-window maxframe yasnippet paredit rainbow-delimiters))
+
+;; Enable various Prelude modules.
+(require 'prelude-helm) ;; Interface for narrowing and search
+(require 'prelude-helm-everywhere) ;; Enable Helm everywhere
+(require 'prelude-company)
+(require 'prelude-key-chord) ;; Binds useful features to key combinations
+(require 'prelude-c)
+(require 'prelude-clojure)
+(require 'prelude-css)
+(require 'prelude-emacs-lisp)
+(require 'prelude-js)
+(require 'prelude-python)
+(require 'prelude-shell)
+(require 'prelude-xml)
+(require 'prelude-yaml)
 
 ;; Enable fancy window switching.
 (require 'switch-window)
