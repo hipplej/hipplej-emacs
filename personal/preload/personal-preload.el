@@ -41,6 +41,13 @@
 (global-linum-mode t)
 
 ;; Set the color theme.
+;; It's annoying that I have to do all this here just to ensure that the package is installed the first time.
+;; FIXME: It would be nice if Prelude had a better hook for this. I should make one.
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(package-initialize)
+(when (not (package-installed-p 'color-theme-sanityinc-tomorrow))
+  (package-install 'color-theme-sanityinc-tomorrow))
 (setq prelude-theme 'sanityinc-tomorrow-bright)
 
 ;; Disable the audible bell.
