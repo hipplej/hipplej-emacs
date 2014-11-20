@@ -72,5 +72,3 @@
           (lambda ()
             (paredit-mode 1)))
 
-;; Start Emacs Server
-(server-start)
