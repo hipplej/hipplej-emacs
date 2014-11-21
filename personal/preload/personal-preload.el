@@ -44,7 +44,7 @@
 ;; It's annoying that I have to do all this here just to ensure that the package is installed the first time.
 ;; FIXME: It would be nice if Prelude had a better hook for this. I should make one.
 (require 'package)
-(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
 (unless (package-installed-p 'color-theme-sanityinc-tomorrow)
   (package-refresh-contents)
