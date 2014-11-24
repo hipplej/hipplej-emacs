@@ -72,3 +72,5 @@
           (lambda ()
             (paredit-mode 1)))
 
+;; Run as a server.
+(server-start)
