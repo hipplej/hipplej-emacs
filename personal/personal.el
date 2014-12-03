@@ -34,6 +34,9 @@
 (require 'rainbow-delimiters)
 (rainbow-delimiters-mode)
 
+;; Enable Projectile caching.
+(setq projectile-enable-caching t)
+
 ;; Flycheck is annoying.
 ;; Maybe I'll get it setup to not be at some point.
 ;; This can't go in the preload file as it won't be defined until later.
@@ -51,11 +54,9 @@
 (define-key company-active-map (kbd "C-h") 'company-show-doc-buffer)
 (define-key company-active-map (kbd "<tab>") 'company-complete-selection)
 
-;; General programming mode specific stuff.
-(add-hook 'prog-mode-common-hook
-          (lambda ()
-            ;; Make these patterns more evident in code.
-            (font-lock-add-keywords nil '(("\\<\\(FIXME\\|TODO\\|BUG\\|NOTE\\):" 1 font-lock-warning-face t)))))
+;; Setup C mode styling.
+(setq c-default-style '((c-mode . "bsd") (c++-mode . "bsd") (java-mode . "java") (other . "bsd")))
+(defvaralias 'c-basic-offset 'tab-width)
 
 ;; Python mode specific stuff.
 (add-hook 'python-mode-hook
@@ -67,10 +68,41 @@
                   py-smart-indentation (not using-windows-p)
                   python-indent 4)))
 
+;; Javascript mode specific stuff.
+(add-hook 'js2-mode-hook
+          (lambda ()
+            (setq js2-basic-offset 2
+                  indent-tabs-mode nil)))
+(add-hook 'js-mode-hook
+          (lambda ()
+            (setq tab-width 2
+                  js-indent-level 2
+                  indent-tabs-mode nil)))
+
 ;; Clojure mode specific stuff.
 (add-hook 'clojure-mode-hook
           (lambda ()
             (paredit-mode 1)))
+
+;; Elisp mode specific stuff.
+(add-hook 'emacs-lisp-mode-hook
+          (lambda ()
+            (setq tab-width 2
+                  indent-tabs-mode nil)))
+
+;; HTML mode specific stuff.
+(add-hook 'html-mode-hook
+          (lambda ()
+            (setq tab-width 2
+                  indent-tabs-mode nil)))
+
+;; LESS mode specific stuff.
+(add-hook 'less-css-mode-hook
+          (lambda ()
+            (setq tab-width 2
+                  less-css-indent-level 2
+                  css-indent-offset 2
+                  indent-tabs-mode nil)))
 
 ;; Run as a server.
 (server-start)
