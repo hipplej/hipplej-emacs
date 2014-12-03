@@ -21,10 +21,11 @@
 ;; Don't show the damn splash screen.
 (setq inhibit-splash-screen t)
 
-;; Tabs cause nothing but headaches but I'm forced to use them at work.
-(setq tab-width 4)
-(defvaralias 'c-basic-offset 'tab-width)
-(setq-default indent-tabs-mode using-windows-p)
+;; Configure default buffer settings.
+(setq-default buffer-file-coding-system 'iso-latin-1-unix
+              tab-width 4
+              indent-tabs-mode using-windows-p
+              fill-column 100)
 
 ;; Typing replaces the selected region.
 (delete-selection-mode t)
@@ -50,6 +51,9 @@
   (package-refresh-contents)
   (package-install 'color-theme-sanityinc-tomorrow))
 (setq prelude-theme 'sanityinc-tomorrow-bright)
+
+;; Turn off scroll bars.
+(scroll-bar-mode -1)
 
 ;; Disable the audible bell.
 (setq visible-bell t)
