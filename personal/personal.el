@@ -34,7 +34,8 @@
 (require 'rainbow-delimiters)
 (rainbow-delimiters-mode)
 
-;; Enable Projectile caching.
+;; Setup Projectile.
+(setq projectile-indexing-method 'alien)
 (setq projectile-enable-caching t)
 
 ;; Flycheck is annoying.
