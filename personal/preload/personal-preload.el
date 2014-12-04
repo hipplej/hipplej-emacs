@@ -27,16 +27,10 @@
               indent-tabs-mode using-windows-p
               fill-column 100)
 
-;; Typing replaces the selected region.
-(delete-selection-mode t)
-
 ;; Don't prompt me when killing buffers with active processes.
 (setq kill-buffer-query-functions
       (remq 'process-kill-buffer-query-function
             kill-buffer-query-functions))
-
-;; Default to 'string' mode when using re-builder.
-(setq reb-re-syntax 'string)
 
 ;; Always show line numbers.
 (global-linum-mode t)
