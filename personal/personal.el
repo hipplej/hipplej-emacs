@@ -1,5 +1,5 @@
 ;; Prelude will automatically install the packages specified in this list.
-(prelude-require-packages '(switch-window maxframe yasnippet rainbow-delimiters))
+(prelude-require-packages '(switch-window yasnippet rainbow-delimiters))
 
 ;; Enable various Prelude modules.
 (require 'prelude-helm) ;; Interface for narrowing and search
@@ -20,9 +20,8 @@
 (require 'switch-window)
 (global-set-key (kbd "C-x o") 'switch-window)
 
-;; Maxmize the window and start with 50/50 vertical split.
-(require 'maxframe)
-(add-hook 'window-setup-hook 'maximize-frame t)
+;; Fullscreen the window and start with 50/50 vertical split.
+(add-hook 'window-setup-hook 'toggle-frame-fullscreen)
 (add-hook 'window-setup-hook 'split-window-horizontally)
 
 ;; Enable yasnippet for fancy templates.
