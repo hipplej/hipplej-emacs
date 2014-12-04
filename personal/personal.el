@@ -1,5 +1,5 @@
 ;; Prelude will automatically install the packages specified in this list.
-(prelude-require-packages '(switch-window maxframe yasnippet paredit rainbow-delimiters))
+(prelude-require-packages '(switch-window maxframe yasnippet rainbow-delimiters))
 
 ;; Enable various Prelude modules.
 (require 'prelude-helm) ;; Interface for narrowing and search
@@ -37,6 +37,10 @@
 ;; Setup Projectile.
 (setq projectile-indexing-method 'alien)
 (setq projectile-enable-caching t)
+
+;; Don't do automatic escaping of strings.
+;; It's not that helpful when it works, and really annoying when it doesn't.
+(setq sp-autoescape-string-quote 'nil)
 
 ;; Flycheck is annoying.
 ;; Maybe I'll get it setup to not be at some point.
@@ -79,11 +83,6 @@
             (setq tab-width 2
                   js-indent-level 2
                   indent-tabs-mode nil)))
-
-;; Clojure mode specific stuff.
-(add-hook 'clojure-mode-hook
-          (lambda ()
-            (paredit-mode 1)))
 
 ;; Elisp mode specific stuff.
 (add-hook 'emacs-lisp-mode-hook
