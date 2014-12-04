@@ -47,6 +47,11 @@
 ;; This can't go in the preload file as it won't be defined until later.
 (global-flycheck-mode -1)
 
+;; Disable some annoying key-chord chords.
+;; Can't use key-chord-unset-global since that has a bug at this time.
+(key-chord-define-global "uu" 'nil)
+(key-chord-define-global "xx" 'nil)
+
 ;; Qt's .pro and .pri files use IDL mode by default, make them not do that.
 ;; Also make .conf files use shell script mode.
 (add-to-list 'auto-mode-alist '("\\.pro\\'" . shell-script-mode))
