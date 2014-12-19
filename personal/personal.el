@@ -67,6 +67,9 @@
 (setq c-default-style '((c-mode . "bsd") (c++-mode . "bsd") (java-mode . "java") (other . "bsd")))
 (defvaralias 'c-basic-offset 'tab-width)
 
+;; I prefer ibuffer.
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
 ;; Python mode specific stuff.
 (add-hook 'python-mode-hook
           (lambda ()
