@@ -86,3 +86,6 @@
           (if using-windows-p (eshell) (ansi-term (getenv "SHELL"))))
       (switch-to-buffer-other-window shell-buffer-name))))
 (global-set-key (kbd "<f5>") 'start-shell)
+
+;; Disable fuzzy matching on Windows since it seems to be slow for some reason.
+(setq helm-projectile-fuzzy-match (not using-windows-p))
