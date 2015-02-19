@@ -1,5 +1,5 @@
 ;; Prelude will automatically install the packages specified in this list.
-(prelude-require-packages '(switch-window yasnippet rainbow-delimiters))
+(prelude-require-packages '(switch-window yasnippet csharp-mode))
 
 ;; Enable various Prelude modules.
 (require 'prelude-helm) ;; Interface for narrowing and search
@@ -28,10 +28,6 @@
 (require 'yasnippet)
 (setq yas-snippet-dirs (expand-file-name "personal/snippets" prelude-dir))
 (yas-global-mode t)
-
-;; Provide fancy highlighting of parenthesis and related symbols.
-(require 'rainbow-delimiters)
-(rainbow-delimiters-mode)
 
 ;; Setup Projectile.
 (setq projectile-indexing-method 'alien)
@@ -78,7 +74,7 @@
                   py-indent-offset 4
                   indent-tabs-mode using-windows-p
                   py-smart-indentation (not using-windows-p)
-                  python-indent 4)))
+                  python-indent-offset 4)))
 
 ;; Javascript mode specific stuff.
 (add-hook 'js2-mode-hook
