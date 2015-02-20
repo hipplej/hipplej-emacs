@@ -53,6 +53,13 @@
 (add-to-list 'auto-mode-alist '("\\.pri\\'" . shell-script-mode))
 (add-to-list 'auto-mode-alist '("\\.conf\\'" . shell-script-mode))
 
+;; Remove some unnecessary Company backends.
+(defvar unnecessary-backends '(company-clang
+                               company-ropemacs company-semantic company-eclim
+                               company-xcode company-capf company-oddmuse
+                               company-bbdb))
+(setq company-backends (cl-set-difference company-backends unnecessary-backends))
+
 ;; Setup some handy Company mode keybinds.
 (define-key company-active-map (kbd "C-n") 'company-select-next)
 (define-key company-active-map (kbd "C-p") 'company-select-previous)
