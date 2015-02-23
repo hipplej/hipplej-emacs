@@ -1,5 +1,5 @@
 Introduction
-=============
+=======
 
 This is my current Emacs configuration. It's a fork of the
 excellent [Emacs Prelude](https://github.com/bbatsov/prelude) project.
