@@ -24,7 +24,7 @@
 ;; Configure default buffer settings.
 (setq-default buffer-file-coding-system 'iso-latin-1-unix
               tab-width 4
-              indent-tabs-mode using-windows-p
+              indent-tabs-mode nil
               fill-column 100)
 
 ;; Don't prompt me when killing buffers with active processes.
