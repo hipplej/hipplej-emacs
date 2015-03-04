@@ -73,14 +73,24 @@
 ;; I prefer ibuffer.
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
+;; C mode specific stuff.
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (smartparens-mode 0)))
+
+;; SQL mode specific stuff.
+(add-hook 'sql-mode-hook
+          (lambda ()
+            (smartparens-mode 0)))
+
 ;; Python mode specific stuff.
 (add-hook 'python-mode-hook
           (lambda ()
             ;; Setup the style based one whether I'm at home or the office.
             (setq tab-width 4
                   py-indent-offset 4
-                  indent-tabs-mode using-windows-p
-                  py-smart-indentation (not using-windows-p)
+                  indent-tabs-mode nil
+                  py-smart-indentation t
                   python-indent-offset 4)))
 
 ;; Javascript mode specific stuff.
