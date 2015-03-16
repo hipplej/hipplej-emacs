@@ -20,8 +20,8 @@
 (require 'switch-window)
 (global-set-key (kbd "C-x o") 'switch-window)
 
-;; Fullscreen the window and start with 50/50 vertical split.
-(add-hook 'window-setup-hook 'toggle-frame-fullscreen)
+;; Maximize the window and start with 50/50 vertical split.
+(add-hook 'window-setup-hook 'toggle-frame-maximized)
 (add-hook 'window-setup-hook 'split-window-horizontally)
 
 ;; Enable yasnippet for fancy templates.
