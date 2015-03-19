@@ -22,7 +22,7 @@
 (setq inhibit-splash-screen t)
 
 ;; Configure default buffer settings.
-(setq-default buffer-file-coding-system 'iso-latin-1-unix
+(setq-default buffer-file-coding-system 'utf-8
               tab-width 4
               indent-tabs-mode nil
               fill-column 100)
@@ -51,9 +51,6 @@
 
 ;; Disable the audible bell.
 (setq visible-bell t)
-
-;; Whitespace mode is kind of annoying.
-(setq prelude-whitespace nil)
 
 ;; Close Emacs with confirmation.
 (defun confirm-exit-from-emacs ()
