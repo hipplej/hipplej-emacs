@@ -77,10 +77,14 @@
 ;; I prefer ibuffer.
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
+;; Smart tabs. I guess.
+(smart-tabs-insinuate 'c 'c++ 'python)
+
 ;; C mode specific stuff.
 (add-hook 'c-mode-common-hook
           (lambda ()
-            (smartparens-mode 0)))
+            (smartparens-mode 0)
+            (setq indent-tabs-mode t)))
 
 ;; SQL mode specific stuff.
 (add-hook 'sql-mode-hook
@@ -93,7 +97,7 @@
             ;; Setup the style based one whether I'm at home or the office.
             (setq tab-width 4
                   py-indent-offset 4
-                  indent-tabs-mode nil
+                  indent-tabs-mode t
                   py-smart-indentation t
                   python-indent-offset 4)))
 
