@@ -70,9 +70,13 @@
 (setq c-default-style '((c-mode . "bsd") (c++-mode . "bsd") (java-mode . "java") (other . "bsd")))
 (defvaralias 'c-basic-offset 'tab-width)
 
-;; Leave whitespace mode on, but tone it way down so it's not super annoying.
+;; Setup whitespace mode.
 (setq prelude-clean-whitespace-on-save nil)
-(setq whitespace-style '(face trailing))
+(setq whitespace-style '(face trailing spaces tabs space-mark tab-mark))
+(setq whitespace-display-mappings
+      '((space-mark 32 [183] [46])
+        (newline-mark 10 [182 10])
+        (tab-mark 9 [8594 9] [92 9])))
 
 ;; I prefer ibuffer.
 (global-set-key (kbd "C-x C-b") 'ibuffer)
