@@ -36,15 +36,8 @@
 (global-linum-mode t)
 
 ;; Set the color theme.
-;; It's annoying that I have to do all this here just to ensure that the package is installed the first time.
-;; FIXME: It would be nice if Prelude had a better hook for this. I should make one.
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-(package-initialize)
-(unless (package-installed-p 'color-theme-sanityinc-tomorrow)
-  (package-refresh-contents)
-  (package-install 'color-theme-sanityinc-tomorrow))
-(setq prelude-theme 'sanityinc-tomorrow-bright)
+(add-to-list 'custom-theme-load-path (expand-file-name "themes" prelude-personal-dir))
+(setq prelude-theme 'base16-default-dark)
 
 ;; Turn off scroll bars.
 (scroll-bar-mode -1)
