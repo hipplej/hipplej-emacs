@@ -1,5 +1,5 @@
 ;; Prelude will automatically install the packages specified in this list.
-(prelude-require-packages '(switch-window yasnippet csharp-mode))
+(prelude-require-packages '(switch-window yasnippet csharp-mode smart-tabs-mode))
 
 ;; Enable various Prelude modules.
 (require 'prelude-helm) ;; Interface for narrowing and search
@@ -82,6 +82,7 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; Smart tabs. I guess.
+(require 'smart-tabs-mode)
 (smart-tabs-insinuate 'c 'c++ 'python)
 
 ;; C mode specific stuff.
