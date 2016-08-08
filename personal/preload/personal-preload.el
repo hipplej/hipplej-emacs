@@ -79,3 +79,8 @@
 
 ;; Disable fuzzy matching on Windows since it seems to be slow for some reason.
 (setq helm-projectile-fuzzy-match (not using-windows-p))
+
+;; FIXME: This needs to be removed after upgrading to emacs 25.
+;; I had to add it to make loading recentf not take forever.
+;; See https://github.com/bbatsov/prelude/issues/896
+(setq tramp-ssh-controlmaster-options)
